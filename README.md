@@ -2,6 +2,12 @@
 
 A beautiful and functional Todo app built with React Native and Expo, featuring authentication, advanced task management, and modern UI/UX.
 
+## 📱 Download APK
+
+**Latest APK Build**: [Download TodoAppMobile.apk](https://expo.dev/artifacts/eas/9FaeFfj564ZxvFkqRR56TW.apk)
+
+*This APK is built using EAS Build and is ready for installation on Android devices. Enable "Install from Unknown Sources" in your Android settings to install the APK.*
+
 ## Features
 
 ### 🔐 Authentication & Onboarding
@@ -84,12 +90,80 @@ npm start
    - **Android**: Press `a` in the terminal or scan QR code with Expo Go app
    - **Web**: Press `w` in the terminal
 
+## 🚀 Building APK
+
+### Prerequisites for APK Build
+- Expo account (free at [expo.dev](https://expo.dev))
+- EAS CLI installed: `npm install -g @expo/eas-cli`
+
+### Build Workflow
+
+1. **Login to Expo**:
+   ```bash
+   npx eas login
+   ```
+
+2. **Initialize EAS Build** (if not already done):
+   ```bash
+   npx eas init
+   ```
+
+3. **Build APK**:
+   ```bash
+   npx eas build --platform android --profile preview
+   ```
+
+4. **Monitor Build Progress**:
+   - The build will be processed on Expo's servers
+   - You can monitor progress at the provided URL
+   - Build typically takes 10-15 minutes
+
+5. **Download APK**:
+   - Once complete, download the APK from the provided link
+   - Install on Android device with "Unknown Sources" enabled
+
+### Build Profiles
+
+The project includes three build profiles in `eas.json`:
+
+- **development**: For development builds with debugging
+- **preview**: For testing APK builds (recommended for distribution)
+- **production**: For production-ready APK builds
+
+### Customizing Build
+
+To modify build settings, edit the `eas.json` file:
+
+```json
+{
+  "build": {
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
+    }
+  }
+}
+```
+
+### Build Status
+
+- **Current Build**: [View Build Logs](https://expo.dev/accounts/gukan_s004/projects/TodoAppMobile/builds/baeba32d-78a5-4231-9612-eb64859e3d99)
+- **Last Successful Build**: [View Build Logs](https://expo.dev/accounts/gukan_s004/projects/TodoAppMobile/builds/4640cede-1df8-4820-9fec-f3dd1bc74448)
+
 ## Usage
 
 ### Authentication
 1. **Demo Mode**: Tap "Try Demo Mode" to use the app without signing in
 2. **Google Login**: Tap "Continue with Google" for full authentication
 3. **Logout**: Tap the logout icon in the top-right corner
+
+### Profile Management
+1. **Edit Profile**: Go to Settings → Profile → Tap to edit
+2. **Update Name/Email**: Change your display name and email address
+3. **Save Changes**: Tap "Save" to update your profile
+4. **Profile Persistence**: Changes are saved locally and persist between sessions
 
 ### Managing Tasks
 1. **Add Todo**: Tap the floating action button (+) and fill in the form
@@ -138,6 +212,26 @@ TodoAppMobile/
 - `npm run android` - Start on Android device/emulator
 - `npm run ios` - Start on iOS device/simulator
 - `npm run web` - Start in web browser
+
+## 🔧 Recent Fixes & Improvements
+
+### Profile Editing
+- ✅ **Fixed Profile Glitch**: Resolved input lag and glitching issues in profile editing
+- ✅ **Proper State Management**: Implemented controlled components for smooth text input
+- ✅ **Real-time Updates**: Profile changes now reflect immediately across the app
+- ✅ **Input Validation**: Added email format validation and required field checks
+
+### Search Functionality
+- ✅ **Enhanced Search**: Improved search filtering with proper state management
+- ✅ **Performance Optimization**: Added memoization to prevent unnecessary re-renders
+- ✅ **Better UX**: Search now works smoothly without lag or glitches
+- ✅ **Case-insensitive Search**: Search works regardless of case sensitivity
+
+### User Experience
+- ✅ **Loading States**: Added loading indicators for profile updates
+- ✅ **Error Handling**: Improved error messages and user feedback
+- ✅ **Smooth Animations**: Enhanced transitions and interactions
+- ✅ **Responsive Design**: Better handling of different screen sizes
 
 ## Data Persistence
 
